@@ -11,6 +11,7 @@
 		8A6722E1281DCB3E00FC54BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6722E0281DCB3E00FC54BD /* ContentView.swift */; };
 		8A6722E3281DCB3F00FC54BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A6722E2281DCB3F00FC54BD /* Assets.xcassets */; };
 		8A6722E6281DCB3F00FC54BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A6722E5281DCB3F00FC54BD /* Preview Assets.xcassets */; };
+		8AB1F2F8281DCEE90050174E /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB1F2F7281DCEE90050174E /* FileManager+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		8A6722E0281DCB3E00FC54BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8A6722E2281DCB3F00FC54BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A6722E5281DCB3F00FC54BD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8AB1F2F7281DCEE90050174E /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				8A6722DE281DCB3E00FC54BD /* BucketListApp.swift */,
 				8A6722E0281DCB3E00FC54BD /* ContentView.swift */,
+				8AB1F2F7281DCEE90050174E /* FileManager+Extension.swift */,
 				8A6722E2281DCB3F00FC54BD /* Assets.xcassets */,
 				8A6722E4281DCB3F00FC54BD /* Preview Content */,
 			);
@@ -139,6 +142,7 @@
 			files = (
 				8A6722E1281DCB3E00FC54BD /* ContentView.swift in Sources */,
 				8A6722DF281DCB3E00FC54BD /* BucketListApp.swift in Sources */,
+				8AB1F2F8281DCEE90050174E /* FileManager+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +274,7 @@
 				DEVELOPMENT_TEAM = 8KAQMJ37RH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to unlock your data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +304,7 @@
 				DEVELOPMENT_TEAM = 8KAQMJ37RH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to unlock your data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
