@@ -9,41 +9,58 @@ import SwiftUI
 
 struct EditView: View {
   @Environment(\.dismiss) var dismiss
-  var location: Location
   var onSave: (Location) -> Void
 
-  @State private var name: String
-  @State private var description: String
+  @StateObject var viewModel: ViewModel
 
   var body: some View {
     NavigationView {
       Form {
         Section {
-          TextField("Place name", text: $name)
-          TextField("Place description", text: $description)
+          TextField("Place name", text: $viewModel.name)
+          TextField("Place description", text: $viewModel.description)
+        }
+
+        Section("Nearby…") {
+          switch viewModel.loadingState {
+          case .loading:
+            ProgressView("Loading…")
+              .frame(maxWidth: .infinity, alignment: .center)
+              .padding(.vertical)
+          case .loaded:
+            ForEach(viewModel.pages, id: \.pageid) { page in
+              Text(page.title)
+                .font(.headline)
+              + Text(":\n")
+              + Text(page.description)
+                .italic()
+            }
+          case .failed:
+            Text("Try again later, it seems you have no connection to the internet.")
+          }
         }
       }
       .navigationTitle("Place details")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         Button("Save") {
-          var newLocation = location
-          newLocation.id = UUID()
-          newLocation.name = name
-          newLocation.description = description
+          let newLocation = viewModel.saveChanges()
           onSave(newLocation)
           dismiss()
         }
+      }
+      .task {
+        await viewModel.fetchNearbyLocations()
       }
     }
   }
 
   init(location: Location, onSave: @escaping (Location) -> Void) {
-    self.location = location
+    _viewModel = StateObject(wrappedValue: ViewModel(location: location))
     self.onSave = onSave
-    _name = State(initialValue: location.name)
-    _description = State(initialValue: location.description)
   }
+
+
 }
 
 struct EditView_Previews: PreviewProvider {
